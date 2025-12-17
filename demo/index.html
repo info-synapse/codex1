@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deposit Widget Demo</title>
+  <style>
+    body { background: #06070c; margin: 0; padding: 24px; color: #f7f9fc; font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .note { margin-top: 18px; color: #9aa4b5; }
+    a { color: #60a5fa; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Deposit method selector</h1>
+    <div id="widget"></div>
+    <p class="note">
+      Click any Proceed button to see the modal loader. Replace the checkout URLs with your own endpoint that returns HTML or JavaScript.
+    </p>
+  </div>
+  <script src="../src/depositWidget.js"></script>
+  <script>
+    DepositWidget.render({
+      container: '#widget',
+      onProceed: ({ method, amount }) => {
+        console.log('Proceeding with', method.name, 'amount:', amount);
+      },
+    });
+  </script>
+</body>
+</html>
